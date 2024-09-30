@@ -21,7 +21,11 @@ if (!function_exists('simple_wp_migrator_runner_html')) {
         $storage = new WordpressDatabaseStorage('simple_migrations');
         $fileStorage = new FileStorage();
 
-        $pathMigrations = (string)get_option('simple_wp_migrator_migration_path', '/wp-content/plugins/simple-wp-migrator/migrations');
+        $pathMigrations = trim((string)get_option('simple_wp_migrator_migration_path', '/wp-content/plugins/simple-wp-migrator/migrations'));
+        if (!$pathMigrations) {
+            $pathMigrations = '/wp-content/plugins/simple-wp-migrator/migrations';
+        }
+
         $migrations = $fileStorage->getMigrationFiles($_SERVER['DOCUMENT_ROOT'] . $pathMigrations);
 
         $runMigrations = $storage->getRanMigrations();
