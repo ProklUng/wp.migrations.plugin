@@ -8,7 +8,7 @@ if ( ! defined( 'BETTER_WP_ADMIN_API_VERSION' ) ) {
 	define( 'BETTER_WP_ADMIN_API_DIR', __DIR__ );
 	define( 'BETTER_WP_ADMIN_API_FILE', __FILE__ );
 
-	if ( ! class_exists('includes\panel\libs\Parsedown\Parsedown') ) {
+	if ( ! class_exists(Parsedown::class) ) {
 		require_once( __DIR__ . '/libs/Parsedown/Parsedown.php' );
 	}
 

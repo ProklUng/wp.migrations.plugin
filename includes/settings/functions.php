@@ -21,8 +21,8 @@ if (!function_exists('simple_wp_migrator_runner_html')) {
         $storage = new WordpressDatabaseStorage('simple_migrations');
         $fileStorage = new FileStorage();
 
-
-        $migrations = $fileStorage->getMigrationFiles($_SERVER['DOCUMENT_ROOT'] . '/wp-content/plugins/simple-wp-migrator/migrations');
+        $pathMigrations = (string)get_option('simple_wp_migrator_migration_path', '/wp-content/plugins/simple-wp-migrator/migrations');
+        $migrations = $fileStorage->getMigrationFiles($_SERVER['DOCUMENT_ROOT'] . $pathMigrations);
 
         $runMigrations = $storage->getRanMigrations();
         $html = $html . '<section style="margin-top: 16px">';

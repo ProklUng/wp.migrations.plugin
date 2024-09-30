@@ -14,6 +14,18 @@
  */
 class SimpleWpMigrator_Deactivator {
 
+    /**
+     * @var string $prefix
+     */
+    private static $prefix = 'simple_wp_migrator_';
+
+    /**
+     * @var string[] $options Options for cleaning.
+     */
+    private static $options = [
+        'migration_path',
+    ];
+
 	/**
 	 * Short Description. (use period)
 	 *
@@ -22,6 +34,16 @@ class SimpleWpMigrator_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-		// Some code.
+        foreach (static::$options as $option) {
+            delete_option(static::$prefix . $option);
+        }
+
+        // Clear all another plugin options
+        $all_options = wp_load_alloptions();
+        foreach ($all_options as $name => $value ) {
+            if ( stripos( $name, static::$prefix ) !== false) {
+                delete_option($name);
+            }
+        }
 	}
 }

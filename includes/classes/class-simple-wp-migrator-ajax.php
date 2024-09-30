@@ -82,9 +82,10 @@ class SimpleWpMigratorAjax
      */
     private function initMigrator() : Migrator
     {
+        $pathMigrations = (string)get_option('simple_wp_migrator_migration_path', '/wp-content/plugins/simple-wp-migrator/migrations');
         $config = [
             'table' => 'simple_migrations',
-            'dir' => $_SERVER['DOCUMENT_ROOT'] . '/wp-content/plugins/simple-wp-migrator/migrations',
+            'dir' => $_SERVER['DOCUMENT_ROOT'] . $pathMigrations,
             'dir_archive' => './app/archive_migrations', // not required. default = "archive"
             'use_transaction' => false, // not required. default = false
             'default_fields' => []

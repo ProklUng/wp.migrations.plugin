@@ -3,6 +3,17 @@ require_once 'functions.php';
 
 $fields = [
     [
+        'type'    => 'text',
+        'id'      => 'migration_path',
+        'label'   => __( 'Путь к миграциям', 'simple-wp-migrator' ),
+        'desc'    => ' ',
+        'default' => '/wp-content/plugins/simple-wp-migrator/migrations',
+        'props'   => [
+
+        ],
+    ],
+
+    [
         'type'    => 'html',
         'id'      => 'buttons_migration',
         'default' => '',

@@ -13,8 +13,6 @@
 #
 #
 
-namespace includes\panel\libs\Parsedown;
-
 class Parsedown
 {
     # ~
