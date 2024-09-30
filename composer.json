@@ -1,0 +1,38 @@
+{
+  "name": "proklung/wp.migrations.plugin",
+  "description": "Migrations for Wordpress without access to server",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "migrations"
+  ],
+  "authors": [
+    {
+      "name": "Gavrilov Fedy",
+      "email": "fedor.gavrilov.75@mail.ru",
+      "homepage": "https://github.com/ProklUng"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/ProklUng/wp.migrations.plugin/issues",
+    "source": "https://github.com/ProklUng/wp.migrations.plugin"
+  },
+  "autoload": {
+  },
+  "require": {
+    "php": ">=7.1 || ^8.0",
+    "composer/installers": "*"
+  },
+  "extra": {
+    "installer-paths": {
+      "path/to/wp-content/plugins/simple-wp-migrator": [
+        "type:wordpress-plugin"
+      ]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}
