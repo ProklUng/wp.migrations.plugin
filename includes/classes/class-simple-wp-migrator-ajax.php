@@ -68,6 +68,7 @@ class SimpleWpMigratorAjax
 
             $migration = (string)$ran[count($ran) - 1];
             $migrator->removeSuccessfulMigrationFromLog($migration);
+	        $migrator->rollbackMigration($migration);
             // $migrator->deleteMigrationFile($migration);
         } catch (Exception $e) {
             $result = ['success' => false, 'message' => $e->getMessage()];
